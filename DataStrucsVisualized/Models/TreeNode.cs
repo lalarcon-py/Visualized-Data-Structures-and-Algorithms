@@ -35,12 +35,12 @@ public class BinaryTreeDbContext : DbContext
         optionsBuilder.UseSqlServer("your_connection_string");
     }
 }
-/*
-public class BinaryTreeService : IBinaryTreeService
+ 
+public class BinaryTreeHelperService : IBinaryTreeService
 {
     private readonly BinaryTreeDbContext _dbContext;
 
-    public BinaryTreeService(BinaryTreeDbContext dbContext)
+    public BinaryTreeHelperService(BinaryTreeDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -141,17 +141,17 @@ public class BinaryTreeService : IBinaryTreeService
 [Route("api/[controller]")]
 public class BinaryTreeController : ControllerBase
 {
-    private readonly BinaryTreeService _binaryTreeService;
+    private readonly BinaryTreeHelperService _binaryTreeHelperService;
 
-    public BinaryTreeController(BinaryTreeService binaryTreeService)
+    public BinaryTreeController(BinaryTreeHelperService binaryTreeHelperService)
     {
-        _binaryTreeService = binaryTreeService;
+        _binaryTreeHelperService = binaryTreeHelperService;
     }
 
     [HttpGet("{id}")]
     public ActionResult<BinaryTree> GetBinaryTree(int id)
     {
-        BinaryTree binaryTree = _binaryTreeService.GetBinaryTreeById(id);
+        BinaryTree binaryTree = _binaryTreeHelperService.GetBinaryTreeById(id);
         if (binaryTree == null)
             return NotFound();
 
@@ -161,12 +161,12 @@ public class BinaryTreeController : ControllerBase
     [HttpPost("invert/{id}")]
     public ActionResult<BinaryTree> InvertBinaryTree(int id)
     {
-        BinaryTree binaryTree = _binaryTreeService.GetBinaryTreeById(id);
+        BinaryTree binaryTree = _binaryTreeHelperService.GetBinaryTreeById(id);
         if (binaryTree == null)
             return NotFound();
 
-        binaryTree.Root = _binaryTreeService.InvertTree(binaryTree.Root);
-        _binaryTreeService.SaveBinaryTree(binaryTree);
+        binaryTree.Root = _binaryTreeHelperService.InvertTree(binaryTree.Root);
+        _binaryTreeHelperService.SaveBinaryTree(binaryTree);
 
         return Ok(binaryTree);
     }
@@ -174,13 +174,13 @@ public class BinaryTreeController : ControllerBase
     [HttpPost("balance/{id}")]
     public ActionResult<BinaryTree> BalanceBinaryTree(int id)
     {
-        BinaryTree binaryTree = _binaryTreeService.GetBinaryTreeById(id);
+        BinaryTree binaryTree = _binaryTreeHelperService.GetBinaryTreeById(id);
         if (binaryTree == null)
             return NotFound();
 
-        binaryTree.Root = _binaryTreeService.BalanceTree(binaryTree.Root);
-        _binaryTreeService.SaveBinaryTree(binaryTree);
+        binaryTree.Root = _binaryTreeHelperService.BalanceTree(binaryTree.Root);
+        _binaryTreeHelperService.SaveBinaryTree(binaryTree);
 
         return Ok(binaryTree);
     }
-} */
+} 
