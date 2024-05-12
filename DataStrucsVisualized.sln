@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStrucsVisualized", "DataStrucsVisualized\DataStrucsVisualized.csproj", "{0269899F-97AD-4D0A-ABD8-E275C23E8188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructsVisualizedFE", "DataStructsVisualizedFE\DataStructsVisualizedFE.csproj", "{B104FFF1-BBEF-4F6F-A1BC-48CC311350CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0269899F-97AD-4D0A-ABD8-E275C23E8188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0269899F-97AD-4D0A-ABD8-E275C23E8188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0269899F-97AD-4D0A-ABD8-E275C23E8188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0269899F-97AD-4D0A-ABD8-E275C23E8188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B104FFF1-BBEF-4F6F-A1BC-48CC311350CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B104FFF1-BBEF-4F6F-A1BC-48CC311350CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B104FFF1-BBEF-4F6F-A1BC-48CC311350CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B104FFF1-BBEF-4F6F-A1BC-48CC311350CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
