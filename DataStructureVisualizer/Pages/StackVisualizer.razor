@@ -1,0 +1,26 @@
+﻿@page "/stack"
+@using DataStructureVisualizer.DataStructures
+
+<h1>Stack Visualizer</h1>
+
+<button class="btn btn-primary" @onclick="Push">Push</button>
+<button class="btn btn-secondary" @onclick="Pop">Pop</button>
+
+<div class="stack-container">
+    @foreach (var item in stack.GetItemsInReverse())
+    {
+        <div class="stack-item">@item</div>
+    }
+</div>
+
+@code {
+    DataStructureVisualizer.DataStructures.Stack<int> stack = new DataStructureVisualizer.DataStructures.Stack<int>();
+    
+    void Push()
+    {
+        var value = new Random().Next(100);
+        stack.Push(value);
+    }
+    
+    void Pop() => stack.Pop();
+}
