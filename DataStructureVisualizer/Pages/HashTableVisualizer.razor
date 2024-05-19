@@ -1,0 +1,62 @@
+﻿@page "/hashtable"
+@using DataStructureVisualizer.DataStructures
+
+<h1>Hash Table Visualizer</h1>
+
+<div>
+    <label for="key">Key:</label>
+    <input id="key" @bind="key" />
+    <label for="value">Value:</label>
+    <input id="value" @bind="value" />
+    <button class="btn btn-primary" @onclick="AddEntry">Add</button>
+    <button class="btn btn-secondary" @onclick="RemoveEntry">Remove</button>
+    <button class="btn btn-info" @onclick="SearchEntry">Search</button>
+</div>
+
+<div class="hashtable-container">
+    @{
+    var buckets = hashtable.GetBuckets();
+    for (int i = 0; i < buckets.Length; i++)
+    {
+    var bucket = buckets[i];
+    <div class="bucket">
+        <h4>Bucket @i</h4>
+        @foreach (var entry in bucket)
+        {
+        <div class="entry">
+            <span class="key">@entry.Key</span>
+            <span class="value">@entry.Value</span>
+        </div>
+        }
+    </div>
+    }
+    }
+</div>
+
+@code {
+private HashTable<string, int> hashtable = new HashTable<string, int>();
+private string key;
+private int value;
+
+private void AddEntry()
+{
+hashtable.Add(key, value);
+}
+
+private void RemoveEntry()
+{
+hashtable.Remove(key);
+}
+
+private void SearchEntry()
+{
+if (hashtable.TryGetValue(key, out var val))
+{
+// Entry found, highlight it or show a message
+}
+else
+{
+// Entry not found, show a message
+}
+}
+}

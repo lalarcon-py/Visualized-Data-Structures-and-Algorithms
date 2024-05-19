@@ -1,0 +1,50 @@
+﻿@page "/linkedlist"
+@using DataStructureVisualizer.DataStructures
+
+<h1>Linked List Visualizer</h1>
+
+<div>
+    <input @bind="value" />
+    <button class="btn btn-primary" @onclick="AddFirst">Add First</button>
+    <button class="btn btn-secondary" @onclick="AddLast">Add Last</button>
+    <button class="btn btn-danger" @onclick="RemoveFirst">Remove First</button>
+    <button class="btn btn-warning" @onclick="RemoveLast">Remove Last</button>
+</div>
+
+<div class="linkedlist-container">
+    @foreach (var item in linkedList)
+    {
+    <div class="linkedlist-node">
+        <div class="linkedlist-value">@item</div>
+        @if (linkedList.Count > 0 && item != linkedList.GetLast())
+        {
+        <div class="linkedlist-arrow">→</div>
+        }
+    </div>
+    }
+</div>
+
+@code {
+private DataStructures.LinkedList<int> linkedList = new DataStructures.LinkedList<int>();
+private int value;
+
+private void AddFirst()
+{
+linkedList.AddFirst(value);
+}
+
+private void AddLast()
+{
+linkedList.AddLast(value);
+}
+
+private void RemoveFirst()
+{
+linkedList.RemoveFirst();
+}
+
+private void RemoveLast()
+{
+linkedList.RemoveLast();
+}
+}
