@@ -34,29 +34,31 @@
 </div>
 
 @code {
-private HashTable<string, int> hashtable = new HashTable<string, int>();
-private string key;
-private int value;
+    private HashTable<string, int> hashtable = new HashTable<string, int>();
+    private string key;
+    private int value;
 
-private void AddEntry()
-{
-hashtable.Add(key, value);
+    private void AddEntry()
+    {
+        hashtable.Add(key, value);
+    }
+
+    private void RemoveEntry()
+    {
+        hashtable.Remove(key);
+    }
+
+    private void SearchEntry()
+    {
+        if (hashtable.TryGetValue(key, out var val))
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
 }
 
-private void RemoveEntry()
-{
-hashtable.Remove(key);
-}
-
-private void SearchEntry()
-{
-if (hashtable.TryGetValue(key, out var val))
-{
-// Entry found, highlight it or show a message
-}
-else
-{
-// Entry not found, show a message
-}
-}
-}
