@@ -9,7 +9,9 @@ public class Stack<T>
     public T Pop()
     {
         if (items.Count == 0)
+        {
             throw new InvalidOperationException("Stack is empty");
+        }
 
         var item = items[items.Count - 1];
         items.RemoveAt(items.Count - 1);

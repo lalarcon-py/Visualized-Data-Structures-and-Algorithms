@@ -3,48 +3,99 @@
 
 <h1>Linked List Visualizer</h1>
 
-<div>
-    <input @bind="value" />
-    <button class="btn btn-primary" @onclick="AddFirst">Add First</button>
-    <button class="btn btn-secondary" @onclick="AddLast">Add Last</button>
-    <button class="btn btn-danger" @onclick="RemoveFirst">Remove First</button>
-    <button class="btn btn-warning" @onclick="RemoveLast">Remove Last</button>
+<div class="description">
+    <h2>What is a Linked List?</h2>
+    <p>
+        A linked list is a linear data structure where elements are stored in nodes, and each node contains a reference to the next node in the sequence.
+        Unlike arrays, linked lists do not have a fixed size and can grow or shrink dynamically.
+    </p>
+    <h2>How to Use:</h2>
+    <ol>
+        <li>Enter a value in the input field.</li>
+        <li>Click the "Add First" button to insert the value at the beginning of the linked list.</li>
+        <li>Click the "Add Last" button to append the value at the end of the linked list.</li>
+        <li>To remove the first element, click the "Remove First" button.</li>
+        <li>To remove the last element, click the "Remove Last" button.</li>
+    </ol>
+    <h2>How It Works:</h2>
+    <p>
+        A linked list consists of nodes, where each node contains a value and a reference (or link) to the next node in the sequence. The first node is called the head, and the last node points to null, indicating the end of the list.
+    </p>
+    <p>
+        When adding an element to the beginning of the list (AddFirst operation), a new node is created with the given value, and its next reference is set to the current head. The new node then becomes the new head of the list.
+    </p>
+    <p>
+        When adding an element to the end of the list (AddLast operation), a new node is created with the given value, and the next reference of the current last node is updated to point to the new node. The new node becomes the new last node of the list.
+    </p>
+    <p>
+        Removing the first element (RemoveFirst operation) involves updating the head to point to the next node in the sequence, effectively removing the current head from the list.
+    </p>
+    <p>
+        Removing the last element (RemoveLast operation) requires traversing the list to find the second-to-last node, updating its next reference to null, and making it the new last node of the list.
+    </p>
+    <p>
+        Linked lists provide efficient insertion and deletion operations at the beginning and end of the list, as they only require updating the references. However, accessing elements in the middle of the list requires traversing the nodes sequentially from the head, which can be slower compared to arrays.
+    </p>
 </div>
 
-<div class="linkedlist-container">
-    @foreach (var item in linkedList)
-    {
-    <div class="linkedlist-node">
-        <div class="linkedlist-value">@item</div>
-        @if (linkedList.Count > 0 && item != linkedList.GetLast())
-        {
-        <div class="linkedlist-arrow">→</div>
-        }
+<div class="input-container">
+    <div class="input-group">
+        <label for="value">Value:</label>
+        <input id="value" @bind="value" />
     </div>
+    <div class="button-group">
+        <button class="btn btn-primary" @onclick="AddFirst">Add First</button>
+        <button class="btn btn-secondary" @onclick="AddLast">Add Last</button>
+        <button class="btn btn-danger" @onclick="RemoveFirst">Remove First</button>
+        <button class="btn btn-warning" @onclick="RemoveLast">Remove Last</button>
+    </div>
+</div>
+
+<div class="linkedlist-diagram">
+    @if (linkedList.Count > 0)
+    {
+        <div class="node head">
+            <div class="node-data">@linkedList.GetFirst()</div>
+            <div class="node-next">next</div>
+        </div>
+    }
+    @for (int i = 1; i < linkedList.Count - 1; i++)
+    {
+        <div class="node">
+            <div class="node-data">@linkedList.GetElementAt(i)</div>
+            <div class="node-next">next</div>
+        </div>
+    }
+    @if (linkedList.Count > 1)
+    {
+        <div class="node tail">
+            <div class="node-data">@linkedList.GetLast()</div>
+            <div class="node-next">NULL</div>
+        </div>
     }
 </div>
 
 @code {
-private DataStructures.LinkedList<int> linkedList = new DataStructures.LinkedList<int>();
-private int value;
+    private DataStructures.LinkedList<int> linkedList = new DataStructures.LinkedList<int>();
+    private int value;
 
-private void AddFirst()
-{
-linkedList.AddFirst(value);
-}
+    private void AddFirst()
+    {
+        linkedList.AddFirst(value);
+    }
 
-private void AddLast()
-{
-linkedList.AddLast(value);
-}
+    private void AddLast()
+    {
+        linkedList.AddLast(value);
+    }
 
-private void RemoveFirst()
-{
-linkedList.RemoveFirst();
-}
+    private void RemoveFirst()
+    {
+        linkedList.RemoveFirst();
+    }
 
-private void RemoveLast()
-{
-linkedList.RemoveLast();
-}
+    private void RemoveLast()
+    {
+        linkedList.RemoveLast();
+    }
 }

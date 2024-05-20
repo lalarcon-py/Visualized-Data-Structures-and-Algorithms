@@ -119,6 +119,28 @@ public class LinkedList<T>
 
         return tail.Value;
     }
+    
+    public T GetFirst()
+    {
+        if (head == null)
+            throw new InvalidOperationException("Linked list is empty.");
+
+        return head.Value;
+    }
+
+    public T GetElementAt(int index)
+    {
+        if (index < 0 || index >= count)
+            throw new ArgumentOutOfRangeException(nameof(index));
+
+        var current = head;
+        for (int i = 0; i < index; i++)
+        {
+            current = current.Next;
+        }
+
+        return current.Value;
+    }
 
     public bool Contains(T item)
     {
