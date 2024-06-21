@@ -52,50 +52,50 @@
 </div>
 
 <div class="linkedlist-diagram">
-    @if (linkedList.Count > 0)
+    @if (_linkedListDesign.Count > 0)
     {
         <div class="node head">
-            <div class="node-data">@linkedList.GetFirst()</div>
+            <div class="node-data">@_linkedListDesign.GetFirst()</div>
             <div class="node-next">next</div>
         </div>
     }
-    @for (int i = 1; i < linkedList.Count - 1; i++)
+    @for (int i = 1; i < _linkedListDesign.Count - 1; i++)
     {
         <div class="node">
-            <div class="node-data">@linkedList.GetElementAt(i)</div>
+            <div class="node-data">@_linkedListDesign.GetElementAt(i)</div>
             <div class="node-next">next</div>
         </div>
     }
-    @if (linkedList.Count > 1)
+    @if (_linkedListDesign.Count > 1)
     {
         <div class="node tail">
-            <div class="node-data">@linkedList.GetLast()</div>
+            <div class="node-data">@_linkedListDesign.GetLast()</div>
             <div class="node-next">NULL</div>
         </div>
     }
 </div>
 
 @code {
-    private DataStructures.LinkedList<int> linkedList = new DataStructures.LinkedList<int>();
+    private DataStructures.LinkedListDesign<int> _linkedListDesign = new DataStructures.LinkedListDesign<int>();
     private int value;
 
     private void AddFirst()
     {
-        linkedList.AddFirst(value);
+        _linkedListDesign.AddFirst(value);
     }
 
     private void AddLast()
     {
-        linkedList.AddLast(value);
+        _linkedListDesign.AddLast(value);
     }
 
     private void RemoveFirst()
     {
-        linkedList.RemoveFirst();
+        _linkedListDesign.RemoveFirst();
     }
 
     private void RemoveLast()
     {
-        linkedList.RemoveLast();
+        _linkedListDesign.RemoveLast();
     }
 }

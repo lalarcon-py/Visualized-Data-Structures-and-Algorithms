@@ -7,20 +7,20 @@
 <button class="btn btn-secondary" @onclick="Pop">Pop</button>
 
 <div class="stack-container">
-    @foreach (var item in stack.GetItemsInReverse())
+    @foreach (var item in _stackDesign.GetItemsInReverse())
     {
         <div class="stack-item">@item</div>
     }
 </div>
 
 @code {
-    DataStructureVisualizer.DataStructures.Stack<int> stack = new DataStructureVisualizer.DataStructures.Stack<int>();
+    DataStructureVisualizer.DataStructures.StackDesign<int> _stackDesign = new DataStructureVisualizer.DataStructures.StackDesign<int>();
     
     void Push()
     {
         var value = new Random().Next(100);
-        stack.Push(value);
+        _stackDesign.Push(value);
     }
     
-    void Pop() => stack.Pop();
+    void Pop() => _stackDesign.Pop();
 }

@@ -1,6 +1,6 @@
 ﻿namespace DataStructureVisualizer.DataStructures;
 
-public class Stack<T>
+public class StackDesign<T>
 {
     private List<T> items = new List<T>();
 

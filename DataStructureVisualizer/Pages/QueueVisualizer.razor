@@ -10,24 +10,24 @@
 </div>
 
 <div class="queue-container">
-    @foreach (var item in queue)
+    @foreach (var item in _queueDesign)
     {
         <div class="queue-item">@item</div>
     }
 </div>
 
 @code {
-    private DataStructures.Queue<int> queue = new DataStructures.Queue<int>();
+    private DataStructures.QueueDesign<int> _queueDesign = new DataStructures.QueueDesign<int>();
     private int value;
 
     private void Enqueue()
     {
-        queue.Enqueue(value);
+        _queueDesign.Enqueue(value);
     }
 
     private void Dequeue()
     {
-        if (queue.Count > 0)
-            queue.Dequeue();
+        if (_queueDesign.Count > 0)
+            _queueDesign.Dequeue();
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace DataStructureVisualizer.DataStructures;
 
-public class LinkedList<T>
+public class LinkedListDesign<T>
 {
     private class Node
     {

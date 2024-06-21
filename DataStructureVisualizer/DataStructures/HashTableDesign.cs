@@ -2,17 +2,17 @@
 
 namespace DataStructureVisualizer.DataStructures;
 
-public class HashTable<TKey, TValue>
+public class HashTableDesign<TKey, TValue>
 {
     private const int DefaultCapacity = 16;
-    private readonly LinkedList<KeyValuePair<TKey, TValue>>[] buckets;
+    private readonly LinkedListDesign<KeyValuePair<TKey, TValue>>[] buckets;
 
-    public HashTable()
+    public HashTableDesign()
     {
-        buckets = new LinkedList<KeyValuePair<TKey, TValue>>[DefaultCapacity];
+        buckets = new LinkedListDesign<KeyValuePair<TKey, TValue>>[DefaultCapacity];
         for (int i = 0; i < DefaultCapacity; i++)
         {
-            buckets[i] = new LinkedList<KeyValuePair<TKey, TValue>>();
+            buckets[i] = new LinkedListDesign<KeyValuePair<TKey, TValue>>();
         }
     }
 
@@ -53,7 +53,7 @@ public class HashTable<TKey, TValue>
         return false;
     }
     
-    public LinkedList<KeyValuePair<TKey, TValue>>[] GetBuckets()
+    public LinkedListDesign<KeyValuePair<TKey, TValue>>[] GetBuckets()
     {
         return buckets;
     }
@@ -72,7 +72,7 @@ public class HashTable<TKey, TValue>
         return false;
     }
 
-    private LinkedList<KeyValuePair<TKey, TValue>> GetBucket(TKey key)
+    private LinkedListDesign<KeyValuePair<TKey, TValue>> GetBucket(TKey key)
     {
         var hashCode = key.GetHashCode();
         var index = Math.Abs(hashCode) % buckets.Length;

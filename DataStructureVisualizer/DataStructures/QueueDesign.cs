@@ -2,9 +2,9 @@
 
 namespace DataStructureVisualizer.DataStructures;
 
-public class Queue<T> : IEnumerable
+public class QueueDesign<T> : IEnumerable
 {
-    private readonly LinkedList<T> items = new LinkedList<T>();
+    private readonly LinkedListDesign<T> items = new LinkedListDesign<T>();
 
     public void Enqueue(T item)
     {
