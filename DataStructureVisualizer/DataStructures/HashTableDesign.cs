@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DataStructureVisualizer.DataStructures;
+﻿namespace DataStructureVisualizer.DataStructures;
 
 public class HashTableDesign<TKey, TValue>
 {
@@ -56,20 +54,6 @@ public class HashTableDesign<TKey, TValue>
     public LinkedListDesign<KeyValuePair<TKey, TValue>>[] GetBuckets()
     {
         return buckets;
-    }
-
-    public bool ContainsKey(TKey key)
-    {
-        var bucket = GetBucket(key);
-        var current = bucket.GetEnumerator();
-        while (current.MoveNext())
-        {
-            if (current.Current.Key.Equals(key))
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     private LinkedListDesign<KeyValuePair<TKey, TValue>> GetBucket(TKey key)
